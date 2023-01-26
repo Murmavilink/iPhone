@@ -442,10 +442,6 @@ h1, h2, h3, p, ul {
     outline:none;
 }
 
-.characteristics__description.active {
-    height: auto;
-}
-
 .characteristics__item-description {
     display: flex;
     align-items: center;
