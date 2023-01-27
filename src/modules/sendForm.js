@@ -29,7 +29,7 @@ export const sendData = () => {
     const labels = modalBlock.querySelectorAll('.modal__label');
     const inputs = modalBlock.querySelectorAll('.modal__input');
 
-    // Объект данных при отправке сообщение 
+    //Объект данных при отправке сообщение 
     const message = {};
 
     //Статус при отправке сообщение
@@ -38,8 +38,13 @@ export const sendData = () => {
     const statusLoading = 'Загрузка..';
     const statusSuccess = 'Успешно отправлено';
     const statusError = 'Ошибка..';
-    ////////
 
+
+
+    const clearStatusBlock = () => {
+        statusBlock.style = '';
+        statusBlock.textContent = '';
+    };
 
     const clearInputs = () => {
         inputs.forEach(input => {
@@ -57,11 +62,14 @@ export const sendData = () => {
         })
         .then(res => res.json())
         .then(data => {
+            statusBlock.style.color = 'green';
             statusBlock.textContent = statusSuccess;
-            console.log(data);
+            setTimeout(clearStatusBlock, 5000);
         })
         .catch(error => {
-            statusBlock.textContent = statusError; 
+            statusBlock.style.color = 'red';
+            statusBlock.textContent = statusError;
+            setTimeout(clearStatusBlock, 5000);
         });
     };
 
