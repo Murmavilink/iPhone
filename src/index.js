@@ -4,7 +4,7 @@ import tabs from "./modules/tabs";
 import accordion from "./modules/accordeon";
 import getData from "./modules/getData";
 import { modal } from "./modules/sendForm";
-import { sendFormFunc } from "./modules/sendForm";
+import { sendData } from "./modules/sendForm";
 
 
 smoothScroll();
@@ -13,4 +13,4 @@ tabs();
 accordion();
 getData();
 modal();
-sendFormFunc();
+sendData();

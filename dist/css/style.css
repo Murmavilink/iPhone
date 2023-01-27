@@ -596,6 +596,11 @@ h1, h2, h3, p, ul {
     margin-top: 20px;
 }
 
+.status-block {
+    padding: 10px;
+    font-size: 18px;
+    line-height: 21px;
+}
 
 /* /////////////////////////// menu burger*/
 .header-menu__burger {
