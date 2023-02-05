@@ -39,7 +39,7 @@ const getData = () => {
 
     const getGoods = async () => {
         try {
-            const resp = await fetch('./cross-sell-dbase/dbase.json');
+            const resp = await fetch('https://iphonedb-8f641-default-rtdb.firebaseio.com/goodsApple.json');
             const data = await resp.json();
             changeData(data);
         } catch (error) {
