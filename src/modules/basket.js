@@ -1,9 +1,30 @@
+import { openModal } from "./modal";
+
 export const basket = () => {
 
     const productList = document.querySelector('.cross-sell__list');
     const basketBlock = document.querySelector('.basket__inner');
 
     const arrayProducts = [];
+
+
+    const renderProducts = () => {
+
+        basketBlock.innerHTML = '';
+
+        arrayProducts.forEach(product => {
+            basketBlock.insertAdjacentHTML('beforeend', `
+                <article class="basket__item">
+                    <img class="basket__image" src="${product.image}">
+                    <h3 class="basket__title">${product.title}</h3>
+                    <p class="basket__price">${product.price}</p>
+                    <button type="button" class="basket__btn button-buy">Купить</button>
+                </article>
+                `);
+        });
+
+        buttonlListeners();
+    };
 
     productList.addEventListener('click', (e) => {
 
@@ -30,25 +51,18 @@ export const basket = () => {
             arrayProducts.push(product);
         }
 
-
-        if (arrayProducts.length > 0) {
-            basketBlock.innerHTML = '';
-
-
-            arrayProducts.forEach(product => {
-                basketBlock.insertAdjacentHTML('beforeend', `
-                <article class="basket__item">
-                    <img class="basket__image" src="${product.image}">
-                    <h3 class="basket__title">${product.title}</h3>
-                    <p class="basket__price">${product.price}</p>
-                    <button type="button" class="basket__btn button-buy">Купить</button>
-                </article>
-                `);
-            });
-
-        }
+        renderProducts();
 
     });
 
+
+    const buttonlListeners = () => {
+        const buttons = basketBlock.querySelectorAll('.button-buy');
+        const headings = basketBlock.querySelectorAll('.basket__title');
+
+        buttons.forEach((btn, index) => {
+            openModal(btn, headings[index]);
+        });
+    };
 };
 

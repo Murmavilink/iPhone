@@ -4,7 +4,6 @@ import getData from "./modules/getData";
 
 import { smoothScroll } from "./modules/menu";
 import { burgerMenu } from "./modules/menu";
-import { modal } from "./modules/sendForm";
 import { sendData } from "./modules/sendForm";
 import { basket } from "./modules/basket";
 
@@ -13,6 +12,5 @@ burgerMenu();
 tabs();
 accordion();
 getData();
-modal();
 sendData();
 basket();

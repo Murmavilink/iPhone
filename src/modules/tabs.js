@@ -1,3 +1,5 @@
+import { openModal } from "./modal";
+
 const tabs = () => {
     const buttons = document.querySelectorAll('.card-detail__change');
     const tabsTitle = document.querySelector('.card-details__title');
@@ -59,6 +61,17 @@ const tabs = () => {
         });
     });
 
+
+    const buttonlListeners = () => {
+        const btnDelivery = document.querySelector('.card-details__button_delivery');
+        const tabsTitle = document.querySelector('.card-details__title');
+
+        console.log(btnDelivery);
+        console.log(tabsTitle);
+        openModal(btnDelivery, tabsTitle);
+    };
+
+    buttonlListeners();
     showContentTab(0);
 
 };
