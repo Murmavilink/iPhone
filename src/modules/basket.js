@@ -22,6 +22,7 @@ export const basket = () => {
                     <h3 class="basket__title">${product.title}</h3>
                     <p class="basket__price">${product.price}</p>
                     <button type="button" class="basket__btn button-buy">Купить</button>
+                    <button type="button" class="basket__btn button-reomve">Удалить</button>
                 </article>
                 `);
         });
@@ -63,16 +64,30 @@ export const basket = () => {
     const buttonlListeners = () => {
         const buttons = basketBlock.querySelectorAll('.button-buy');
         const headings = basketBlock.querySelectorAll('.basket__title');
+        const buttonsRemove = basketBlock.querySelectorAll('.button-reomve');
 
         buttons.forEach((btn, index) => {
             openModal(btn, headings[index]);
+        });
+
+        buttonsRemove.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                arrayProducts.splice(index, 1);
+                renderProducts();
+
+                if(arrayProducts.length === 0) {
+                    basket.classList.remove('active');
+                    cart.classList.remove('active');
+                }
+
+            });
         });
     };
 
 
     const addCart = () => {
         if(arrayProducts.length > 0) {
-            cart.style.display = 'block';
+            cart.classList.add('active');
         }
     };
 

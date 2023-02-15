@@ -719,6 +719,12 @@ h1, h2, h3, p, ul {
     color: #FFFFFF;
 }
 
+.basket__btn.button-reomve {
+    background-color: #000;
+    border: 1px solid #000;
+    color: #fff;
+}
+
 .cart {
     display: none;
     position: fixed;
@@ -730,6 +736,10 @@ h1, h2, h3, p, ul {
     background-color: #fff;
     cursor: pointer;
     -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+.cart.active {
+    display: block;
 }
 
 .cart svg {
