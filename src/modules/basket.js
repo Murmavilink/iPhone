@@ -7,7 +7,7 @@ export const basket = () => {
 
     productList.addEventListener('click', (e) => {
 
-        if (e.target.classList.contains('button_buy')) {
+        if (e.target.classList.contains('button-basket')) {
             const product = {};
 
             const productItem = e.target.closest('.cross-sell__item');
@@ -41,7 +41,7 @@ export const basket = () => {
                     <img class="basket__image" src="${product.image}">
                     <h3 class="basket__title">${product.title}</h3>
                     <p class="basket__price">${product.price}</p>
-                    <button type="button" class="basket__btn">Купить</button>
+                    <button type="button" class="basket__btn button-buy">Купить</button>
                 </article>
                 `);
             });

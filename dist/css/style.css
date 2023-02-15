@@ -90,7 +90,8 @@ h1, h2, h3, p, ul {
     line-height: 32px;
 }
 
-.button_buy {
+.button-basket, 
+.button-buy {
     background-color: #FE3B3B;
     border: 1px solid #FE3B3B;
     color: #FFFFFF;
