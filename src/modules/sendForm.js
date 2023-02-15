@@ -35,15 +35,17 @@ export const sendData = () => {
     //Статус при отправке сообщение
     const statusBlock = document.createElement('p');
     statusBlock.classList.add('status-block');
-    const statusLoading = 'Загрузка..';
+    const statusLoading = 'Загрузка...';
     const statusSuccess = 'Успешно отправлено';
-    const statusError = 'Ошибка..';
+    const statusError = 'Ошибка!';
 
 
 
     const clearStatusBlock = () => {
-        statusBlock.style = '';
-        statusBlock.textContent = '';
+        setTimeout(() => {
+            statusBlock.style = '';
+            statusBlock.textContent = '';
+        }, 5000);
     };
 
     const clearInputs = () => {
@@ -64,12 +66,12 @@ export const sendData = () => {
         .then(data => {
             statusBlock.style.color = 'green';
             statusBlock.textContent = statusSuccess;
-            setTimeout(clearStatusBlock, 5000);
+            clearStatusBlock();
         })
         .catch(error => {
             statusBlock.style.color = 'red';
             statusBlock.textContent = statusError;
-            setTimeout(clearStatusBlock, 5000);
+            clearStatusBlock();
         });
     };
 
@@ -82,10 +84,11 @@ export const sendData = () => {
             message[span.textContent] = input.value;
         });
 
+        modalBlock.append(statusBlock);
         statusBlock.textContent = statusLoading;
         sendMessage(message);
         clearInputs();
     });
 
-    modalBlock.append(statusBlock);
+    
 };
