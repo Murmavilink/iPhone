@@ -66,8 +66,6 @@ const tabs = () => {
         const btnDelivery = document.querySelector('.card-details__button_delivery');
         const tabsTitle = document.querySelector('.card-details__title');
 
-        console.log(btnDelivery);
-        console.log(tabsTitle);
         openModal(btnDelivery, tabsTitle);
     };
 
