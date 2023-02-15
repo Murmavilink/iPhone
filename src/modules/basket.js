@@ -8,7 +8,12 @@ export const basket = () => {
     const cart = document.querySelector('.cart');
 
 
-    const arrayProducts = [];
+    const arrayProducts = JSON.parse(localStorage.getItem('products')) || [];
+
+
+    const addToLocalStorage = () => {
+        localStorage.setItem('products', JSON.stringify(arrayProducts));
+    };
 
 
     const renderProducts = () => {
@@ -56,6 +61,7 @@ export const basket = () => {
             arrayProducts.push(product);
         }
 
+        addToLocalStorage();
         renderProducts();
 
     });
@@ -73,6 +79,7 @@ export const basket = () => {
         buttonsRemove.forEach((btn, index) => {
             btn.addEventListener('click', () => {
                 arrayProducts.splice(index, 1);
+                addToLocalStorage();
                 renderProducts();
 
                 if(arrayProducts.length === 0) {
@@ -96,5 +103,8 @@ export const basket = () => {
         basket.classList.toggle('active');
     });
 
+
+    addCart();
+    renderProducts();
 };
 
