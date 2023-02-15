@@ -46,7 +46,6 @@ body {
     margin: 0;
     background-color: #fff; /* под проект */
     font-family: "San Francisco", Arial, sans-serif; /* в "" свой шрифт под проект*/
-
     font-size: 16px;
     font-weight: 400;
     color: black;
@@ -641,6 +640,7 @@ h1, h2, h3, p, ul {
 
 .burger-list--open {
     display: block;
+    z-index: 100;
 }
 
 @media(max-width: 968px) {
@@ -656,14 +656,20 @@ h1, h2, h3, p, ul {
 
 
 .basket {
+    overflow: scroll;
     height: 100%;
-    overflow: auto;
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 80px;
+    right: -400px;
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ccc;
+    transition: all 0.3s;
+    padding-bottom: 40px;
+}
+
+.basket.active {
+    right: 0;
 }
 
 .basket::-webkit-scrollbar {
@@ -711,4 +717,30 @@ h1, h2, h3, p, ul {
     background-color: #FE3B3B;
     border: 1px solid #FE3B3B;
     color: #FFFFFF;
+}
+
+.cart {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #fff;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+.cart svg {
+    width: 40px;
+    height: 40px;
+}
+
+
+
+@media(max-width: 968px) {
+    .cart {
+        top: 80px;
+    }
 }

@@ -3,7 +3,10 @@ import { openModal } from "./modal";
 export const basket = () => {
 
     const productList = document.querySelector('.cross-sell__list');
+    const basket = document.querySelector('.basket');
     const basketBlock = document.querySelector('.basket__inner');
+    const cart = document.querySelector('.cart');
+
 
     const arrayProducts = [];
 
@@ -24,6 +27,7 @@ export const basket = () => {
         });
 
         buttonlListeners();
+        addCart();
     };
 
     productList.addEventListener('click', (e) => {
@@ -64,5 +68,18 @@ export const basket = () => {
             openModal(btn, headings[index]);
         });
     };
+
+
+    const addCart = () => {
+        if(arrayProducts.length > 0) {
+            cart.style.display = 'block';
+        }
+    };
+
+
+    cart.addEventListener('click', () => {
+        basket.classList.toggle('active');
+    });
+
 };
 
