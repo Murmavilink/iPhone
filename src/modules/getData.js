@@ -15,7 +15,7 @@ const getData = () => {
                     <img class="cross-sell__image" src="./${good.photo}">
                     <h3 class="cross-sell__title">${good.name}</h3>
                     <p class="cross-sell__price">${good.price} ₽</p>
-                    <button type="button" class="button button_buy cross-sell__button">Купить</button>
+                    <button type="button" class="button button_buy cross-sell__button">В карзину</button>
                 </article>
             </li>
             `);
