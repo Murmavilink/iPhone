@@ -1,5 +1,5 @@
 export const smoothScroll = () => {
-    const links = document.querySelectorAll('.header-menu a');
+    const links = [...document.querySelectorAll('.header-menu a'), document.querySelector('.card-details__link-characteristics')];
 
     links.forEach(link => {
         link.addEventListener('click', (event) => {
@@ -49,7 +49,6 @@ export const burgerMenu = () => {
         if(e.target.matches('.header-menu__item > a')) {
             handleMenu();
         } else if(burgerList.classList.contains('burger-list--open') && !e.target.closest('.header-menu__burger')) {
-            console.log('okkkk');
             handleMenu();
         }
     });
