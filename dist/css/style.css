@@ -90,6 +90,7 @@ h1, h2, h3, p, ul {
     line-height: 32px;
 }
 
+.card-details__button_delivery,
 .button-basket, 
 .button-buy {
     background-color: #FE3B3B;
@@ -314,6 +315,7 @@ h1, h2, h3, p, ul {
 .card-details__footer {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .card-details__price {
