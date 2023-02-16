@@ -1,6 +1,11 @@
+import { maskPhone } from "./validate";
+import { validateName } from "./validate";
+import { validate } from "./validate";
+
+
 export const sendData = () => {
     const modalBlock = document.querySelector('.modal__block');
-    const btnSubmit = modalBlock.querySelector('.modal__submit');
+    const form = modalBlock.querySelector('.modal__form');
     const labels = modalBlock.querySelectorAll('.modal__label');
     const inputs = modalBlock.querySelectorAll('.modal__input');
 
@@ -29,10 +34,10 @@ export const sendData = () => {
         });
     };
 
-    const sendMessage = (obj) => {
+    const sendMessage = (messageData) => {
         fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
-            body: JSON.stringify(obj),
+            body: JSON.stringify(messageData),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             }
@@ -49,21 +54,32 @@ export const sendData = () => {
             clearStatusBlock();
         });
     };
-
-    btnSubmit.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        labels.forEach(label => {
-            const span = label.querySelector('span');
-            const input = label.querySelector('input');
-            message[span.textContent] = input.value;
-        });
-
-        modalBlock.append(statusBlock);
-        statusBlock.textContent = statusLoading;
-        sendMessage(message);
-        clearInputs();
+    
+    form.addEventListener('input', (e) => {
+        validate(inputs);
     });
 
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        if(validate(inputs)) {
+            labels.forEach(label => {
+                const span = label.querySelector('span');
+                const input = label.querySelector('input');
+                message[span.textContent] = input.value;
+            });
+            
+            message['title'] = form.querySelector('.modal__title').textContent;
     
+            modalBlock.append(statusBlock);
+            statusBlock.textContent = statusLoading;
+            sendMessage(message);
+            clearInputs();
+        }
+
+        
+    });
+
+    maskPhone('.form-phone');
+    validateName();
 };

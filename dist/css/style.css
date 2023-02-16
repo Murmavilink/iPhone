@@ -603,6 +603,11 @@ h1, h2, h3, p, ul {
     line-height: 21px;
 }
 
+.error {
+    border: 1px solid red;
+    outline: 1px solid red;
+}
+
 /* /////////////////////////// menu burger*/
 .header-menu__burger {
     position: relative;
