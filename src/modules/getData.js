@@ -1,4 +1,4 @@
-const getData = () => {
+export const getData = () => {
     const sellList = document.querySelector('.cross-sell__list');
     const btnAdd = document.querySelector('.cross-sell__add');
 
@@ -51,5 +51,3 @@ const getData = () => {
 
     btnAdd.addEventListener('click', getGoods);
 };
-
-export default getData;

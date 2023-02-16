@@ -1,6 +1,6 @@
 import { openModal } from "./modal";
 
-const tabs = () => {
+export const tabs = () => {
     const buttons = document.querySelectorAll('.card-detail__change');
     const tabsTitle = document.querySelector('.card-details__title');
     const tabsPrice = document.querySelector('.card-details__price');
@@ -73,6 +73,3 @@ const tabs = () => {
     showContentTab(0);
 
 };
-
-
-export default tabs;

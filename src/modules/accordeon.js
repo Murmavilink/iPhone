@@ -1,4 +1,4 @@
-const accordion = () => {
+export const accordion = () => {
     const charList = document.querySelector('.characteristics__list');
 
     charList.addEventListener('click', (e) => {
@@ -18,5 +18,3 @@ const accordion = () => {
     });
 
 };
-
-export default accordion;
