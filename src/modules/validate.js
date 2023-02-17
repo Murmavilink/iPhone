@@ -2,22 +2,21 @@ export const validate = (formInputs) => {
     let statusValidate = false;
 
     for( let i = 0; i < formInputs.length; i++ ) {
-        if(formInputs[i].value.length < 2) {
+        if(formInputs[i].value.trim().length < 2) {
             formInputs[i].classList.add('error');
         } else {
             formInputs[i].classList.remove('error');
         }
 
         if(formInputs[i].classList.contains('form-phone')) {
-            if(formInputs[i].value.length < 18) formInputs[i].classList.add('error');
+            if(formInputs[i].value.trim().length < 18) formInputs[i].classList.add('error');
         }
 
     }
 
     for( let i = 0; i < formInputs.length; i++ ) {
         if(formInputs[i].classList.contains('error')) {
-            statusValidate = false;
-            return;
+           return statusValidate = false;
         } else if(!formInputs[i].classList.contains('error')) {
             statusValidate = true;
         }
