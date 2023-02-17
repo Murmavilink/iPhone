@@ -139,11 +139,11 @@ h1, h2, h3, p, ul {
 .header-menu {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-.header-menu__logo {
+.header-menu__logo-link {
     max-width: 34px;
-    margin-right: auto;
 }
 
 .header-menu__list {
