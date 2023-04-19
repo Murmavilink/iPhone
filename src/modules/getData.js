@@ -39,7 +39,7 @@ export const getData = () => {
 
     const getGoods = async () => {
         try {
-            const resp = await fetch('https://iphonedb-691a5-default-rtdb.firebaseio.com/goodsApple.json');
+            const resp = await fetch('https://iphonedb-8c94a-default-rtdb.firebaseio.com/goodsApple.json');
             const data = await resp.json();
             changeData(data);
         } catch (error) {
